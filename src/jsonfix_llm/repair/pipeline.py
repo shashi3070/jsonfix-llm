@@ -1,14 +1,14 @@
-from jsonfix_ai.extract.extract_json import extract_json
-from jsonfix_ai.models import RepairResult
-from jsonfix_ai.repair.brackets import auto_close_brackets
-from jsonfix_ai.repair.commas import fix_commas
-from jsonfix_ai.repair.comments import strip_comments
-from jsonfix_ai.repair.control_chars import fix_control_chars
-from jsonfix_ai.repair.literals import fix_python_literals
-from jsonfix_ai.repair.markdown import strip_markdown_fences
-from jsonfix_ai.repair.quotes import fix_quotes
-from jsonfix_ai.repair.values import fix_values
-from jsonfix_ai.validators.validator import validate_json
+from jsonfix_llm.extract.extract_json import extract_json
+from jsonfix_llm.models import RepairResult
+from jsonfix_llm.repair.brackets import auto_close_brackets
+from jsonfix_llm.repair.commas import fix_commas
+from jsonfix_llm.repair.comments import strip_comments
+from jsonfix_llm.repair.control_chars import fix_control_chars
+from jsonfix_llm.repair.literals import fix_python_literals
+from jsonfix_llm.repair.markdown import strip_markdown_fences
+from jsonfix_llm.repair.quotes import fix_quotes
+from jsonfix_llm.repair.values import fix_values
+from jsonfix_llm.validators.validator import validate_json
 
 
 def repair_json(text: str, rich: bool = False) -> str | RepairResult:

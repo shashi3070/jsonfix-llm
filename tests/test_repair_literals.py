@@ -1,4 +1,4 @@
-from jsonfix_ai.repair.literals import fix_python_literals
+from jsonfix_llm.repair.literals import fix_python_literals
 from tests.fixtures import (
     PYTHON_LITERALS,
     PYTHON_LITERALS_EXPECTED,

@@ -11,7 +11,7 @@ pip install jsonfix-llm
 ## Quick Start
 
 ```python
-from jsonfix_ai import repair_json
+from jsonfix_llm import repair_json
 
 fixed = repair_json("""{
   'name': 'shashi'
@@ -36,7 +36,7 @@ fixed = repair_json("""{
 ## API
 
 ```python
-from jsonfix_ai import repair_json, extract_code, extract_json
+from jsonfix_llm import repair_json, extract_code, extract_json
 
 # Simple repair
 fixed = repair_json(text)

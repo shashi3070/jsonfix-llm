@@ -1,4 +1,4 @@
-from jsonfix_ai.extract.extract_code import extract_code
+from jsonfix_llm.extract.extract_code import extract_code
 from tests.fixtures import (
     EXTRACT_FENCED_JSON,
     EXTRACT_FENCED_PYTHON,

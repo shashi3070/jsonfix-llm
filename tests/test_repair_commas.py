@@ -1,4 +1,4 @@
-from jsonfix_ai.repair.commas import fix_commas, fix_trailing_commas
+from jsonfix_llm.repair.commas import fix_commas, fix_trailing_commas
 from tests.fixtures import (
     MISSING_COMMAS,
     MISSING_COMMAS_NESTED,

@@ -1,4 +1,4 @@
-from jsonfix_ai.repair.markdown import strip_markdown_fences
+from jsonfix_llm.repair.markdown import strip_markdown_fences
 from tests.fixtures import (
     MARKDOWN_FENCED,
     MARKDOWN_MULTIPLE,

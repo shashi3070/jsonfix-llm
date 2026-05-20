@@ -4,7 +4,7 @@ from pathlib import Path
 
 from typer.testing import CliRunner
 
-from jsonfix_ai.cli.main import app
+from jsonfix_llm.cli.main import app
 
 runner = CliRunner()
 

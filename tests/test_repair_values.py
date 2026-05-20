@@ -1,4 +1,4 @@
-from jsonfix_ai.repair.values import fix_values
+from jsonfix_llm.repair.values import fix_values
 from tests.fixtures import (
     MISSING_COLONS,
     MISSING_COLONS_EXPECTED,

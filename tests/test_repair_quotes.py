@@ -1,4 +1,4 @@
-from jsonfix_ai.repair.quotes import fix_quotes
+from jsonfix_llm.repair.quotes import fix_quotes
 from tests.fixtures import (
     SINGLE_QUOTES_APOSTROPHE,
     SINGLE_QUOTES_APOSTROPHE_EXPECTED,

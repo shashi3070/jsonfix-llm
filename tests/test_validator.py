@@ -1,6 +1,6 @@
 import json
 
-from jsonfix_ai.validators.validator import validate_json
+from jsonfix_llm.validators.validator import validate_json
 
 
 def test_validates_correct_json():

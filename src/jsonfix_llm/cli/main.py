@@ -3,7 +3,7 @@ import sys
 import typer
 from typer.core import TyperGroup
 
-from jsonfix_ai import extract_code, repair_json
+from jsonfix_llm import extract_code, repair_json
 
 
 class NaturalOrderGroup(TyperGroup):

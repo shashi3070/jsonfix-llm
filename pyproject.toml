@@ -36,7 +36,7 @@ Repository = "https://github.com/your/jsonfix-llm"
 BugTracker = "https://github.com/your/jsonfix-llm/issues"
 
 [project.scripts]
-jsonfix = "jsonfix_ai.cli.main:app"
+jsonfix = "jsonfix_llm.cli.main:app"
 
 [project.optional-dependencies]
 dev = [
@@ -56,4 +56,4 @@ target-version = "py39"
 select = ["E", "F", "I"]
 
 [tool.coverage.run]
-source = ["src/jsonfix_ai"]
+source = ["src/jsonfix_llm"]

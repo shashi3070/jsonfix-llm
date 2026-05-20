@@ -1,4 +1,4 @@
-from jsonfix_ai.repair.comments import strip_comments
+from jsonfix_llm.repair.comments import strip_comments
 from tests.fixtures import (
     COMMENTS_BLOCK,
     COMMENTS_BLOCK_EXPECTED,

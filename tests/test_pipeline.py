@@ -1,7 +1,7 @@
 import json
 
-from jsonfix_ai import repair_json
-from jsonfix_ai.models import RepairResult
+from jsonfix_llm import repair_json
+from jsonfix_llm.models import RepairResult
 from tests.fixtures import (
     BOM_TEXT,
     COMPLEX_LLM_OUTPUT,

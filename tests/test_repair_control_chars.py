@@ -1,4 +1,4 @@
-from jsonfix_ai.repair.control_chars import fix_control_chars
+from jsonfix_llm.repair.control_chars import fix_control_chars
 from tests.fixtures import (
     CONTROL_NEWLINES,
     CONTROL_TABS,

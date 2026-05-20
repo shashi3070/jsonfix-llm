@@ -1,4 +1,4 @@
-from jsonfix_ai.extract.extract_json import extract_json, extract_json_all
+from jsonfix_llm.extract.extract_json import extract_json, extract_json_all
 from tests.fixtures import (
     EXTRACT_JSON_ARRAY,
     EXTRACT_JSON_ARRAY_EXPECTED,

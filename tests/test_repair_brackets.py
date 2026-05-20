@@ -1,6 +1,6 @@
 import json
 
-from jsonfix_ai.repair.brackets import auto_close_brackets
+from jsonfix_llm.repair.brackets import auto_close_brackets
 from tests.fixtures import (
     EMPTY_ARRAY,
     EMPTY_OBJECT,
