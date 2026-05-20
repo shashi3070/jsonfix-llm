@@ -1,0 +1,35 @@
+import re
+
+
+def fix_missing_commas(text: str) -> str:
+    text = re.sub(
+        r'("\s*)\n(\s*)("(?=[^:]*:))',
+        r"\1,\n\2\3",
+        text,
+    )
+    text = re.sub(r"(\})\s*\n(\s*)(\{)", r"\1,\n\2\3", text)
+    text = re.sub(r'(\])\s*\n(\s*)("(?=[^:]*:))', r"\1,\n\2\3", text)
+    text = re.sub(r'("\s*)\n(\s*)(\{)', r"\1,\n\2\3", text)
+    text = re.sub(r"(\})\s*\n(\s*)(\[)", r"\1,\n\2\3", text)
+    text = re.sub(r"(\])\s*\n(\s*)(\{)", r"\1,\n\2\3", text)
+    text = re.sub(r'(\])\s*\n(\s*)(\[)', r"\1,\n\2\3", text)
+    text = re.sub(
+        r"(\d+|true|false|null)\s*\n(\s*)("
+        r'"(?=[^:]*:))',
+        r"\1,\n\2\3",
+        text,
+        flags=re.IGNORECASE,
+    )
+    return text
+
+
+def fix_trailing_commas(text: str) -> str:
+    text = re.sub(r",\s*\}", "}", text)
+    text = re.sub(r",\s*\]", "]", text)
+    return text
+
+
+def fix_commas(text: str) -> str:
+    text = fix_trailing_commas(text)
+    text = fix_missing_commas(text)
+    return text

@@ -1,0 +1,77 @@
+> from jsonfix_ai.extract.extract_json import extract_json
+> from jsonfix_ai.models import RepairResult
+> from jsonfix_ai.repair.brackets import auto_close_brackets
+> from jsonfix_ai.repair.commas import fix_commas
+> from jsonfix_ai.repair.comments import strip_comments
+> from jsonfix_ai.repair.control_chars import fix_control_chars
+> from jsonfix_ai.repair.literals import fix_python_literals
+> from jsonfix_ai.repair.markdown import strip_markdown_fences
+> from jsonfix_ai.repair.quotes import fix_quotes
+> from jsonfix_ai.repair.values import fix_values
+> from jsonfix_ai.validators.validator import validate_json
+  
+  
+> def repair_json(text: str, rich: bool = False) -> str | RepairResult:
+>     fixes = []
+  
+>     cleaned = strip_markdown_fences(text)
+>     if cleaned != text:
+>         fixes.append("markdown_fences_stripped")
+  
+>     if cleaned.startswith("\ufeff"):
+>         cleaned = cleaned[1:]
+>         fixes.append("bom_stripped")
+  
+>     no_comments = strip_comments(cleaned)
+>     if no_comments != cleaned:
+>         fixes.append("comments_stripped")
+>     cleaned = no_comments
+  
+>     extracted = extract_json(cleaned)
+>     if extracted != cleaned:
+>         fixes.append("json_extracted")
+>     cleaned = extracted
+  
+>     quoted = fix_quotes(cleaned)
+>     if quoted != cleaned:
+>         fixes.append("quotes_fixed")
+>     cleaned = quoted
+  
+>     literals_fixed = fix_python_literals(cleaned)
+>     if literals_fixed != cleaned:
+>         fixes.append("literals_fixed")
+>     cleaned = literals_fixed
+  
+>     commas_fixed = fix_commas(cleaned)
+>     if commas_fixed != cleaned:
+>         fixes.append("commas_fixed")
+>     cleaned = commas_fixed
+  
+>     values_fixed = fix_values(cleaned)
+>     if values_fixed != cleaned:
+>         fixes.append("values_fixed")
+>     cleaned = values_fixed
+  
+>     escaped = fix_control_chars(cleaned)
+>     if escaped != cleaned:
+>         fixes.append("control_chars_escaped")
+>     cleaned = escaped
+  
+>     closed = auto_close_brackets(cleaned)
+>     if closed != cleaned:
+>         fixes.append("brackets_closed")
+>     cleaned = closed
+  
+>     is_valid, errors = validate_json(cleaned)
+>     was_repaired = len(fixes) > 0
+  
+>     if rich:
+>         return RepairResult(
+>             fixed=cleaned,
+>             was_repaired=was_repaired,
+>             fixes=fixes,
+>             error_count=len(errors),
+>             errors=errors,
+>         )
+  
+>     return cleaned

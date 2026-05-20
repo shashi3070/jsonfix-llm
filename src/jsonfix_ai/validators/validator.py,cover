@@ -1,0 +1,11 @@
+> import json
+  
+  
+> def validate_json(text: str) -> tuple[bool, list[str]]:
+>     errors = []
+>     try:
+>         json.loads(text)
+>         return True, errors
+>     except json.JSONDecodeError as e:
+>         errors.append(f"line {e.lineno}, col {e.colno}: {e.msg}")
+>         return False, errors

@@ -1,0 +1,45 @@
+MAPPING = {
+    "True": "true",
+    "False": "false",
+    "None": "null",
+    "undefined": "null",
+    "NaN": "null",
+}
+
+
+def fix_python_literals(text: str) -> str:
+    result = []
+    in_string = False
+    escape = False
+    i = 0
+    while i < len(text):
+        ch = text[i]
+        if escape:
+            result.append(ch)
+            escape = False
+            i += 1
+            continue
+        if ch == "\\":
+            result.append(ch)
+            escape = True
+            i += 1
+            continue
+        if ch == '"':
+            in_string = not in_string
+            result.append(ch)
+            i += 1
+            continue
+        if in_string:
+            result.append(ch)
+            i += 1
+            continue
+        if ch.isalpha() or ch == "_":
+            start = i
+            while i < len(text) and (text[i].isalnum() or text[i] == "_"):
+                i += 1
+            word = text[start:i]
+            result.append(MAPPING.get(word, word))
+        else:
+            result.append(ch)
+            i += 1
+    return "".join(result)
