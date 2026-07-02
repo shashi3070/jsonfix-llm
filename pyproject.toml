@@ -4,18 +4,19 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jsonfix-llm"
-version = "0.1.0"
+version = "0.1.1"
 description = "Repair broken JSON from LLM outputs"
 readme = "README.md"
+license-files = ["LICENSE"]
 requires-python = ">=3.9"
-license = { text = "MIT" }
 authors = [
-    { name = "shashi kundan", email = "shashikundan0001@gmail.com" },
+    { name = "Shashi Kundan", email = "shashikundan0001@gmail.com" },
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -23,7 +24,10 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Text Processing :: General",
 ]
-keywords = ["json", "llm", "repair", "fix", "ai"]
+keywords = [
+    "json", "llm", "repair", "fix", "ai", "markdown",
+    "extraction", "parsing", "recovery", "json-repair",
+]
 
 dependencies = [
     "pydantic>=2.0",
@@ -31,9 +35,11 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/your/jsonfix-llm"
-Repository = "https://github.com/your/jsonfix-llm"
-BugTracker = "https://github.com/your/jsonfix-llm/issues"
+Homepage = "https://github.com/shashi3070/jsonfix-llm"
+Repository = "https://github.com/shashi3070/jsonfix-llm"
+Documentation = "https://github.com/shashi3070/jsonfix-llm#readme"
+Issues = "https://github.com/shashi3070/jsonfix-llm/issues"
+Changelog = "https://github.com/shashi3070/jsonfix-llm/blob/main/CHANGELOG.md"
 
 [project.scripts]
 jsonfix = "jsonfix_llm.cli.main:app"
